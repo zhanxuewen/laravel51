@@ -42,4 +42,5 @@ Route::post('/user/register', 'UserController@store');
 Route::post('/deploy', 'DeploymentController@deploy');
 
 Route::resource('comment','CommentsController');
+Route::resource('/test','TestsController');
 
