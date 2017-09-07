@@ -39,4 +39,5 @@ Route::get('/verify/{confirm_code}', 'UserController@confirmEmail');
 Route::post('/user/register', 'UserController@store');
 
 Route::resource('comment','CommentsController');
+Route::resource('/test','TestsController');
 
