@@ -20,7 +20,7 @@
 //    return 'Hello '.$name;
 //});
 
-Route::get('/','ArticleController@index');
+Route::get('/','PostsController@index');
 Route::get('article/create','ArticleController@create');
 Route::get('article/{id}','ArticleController@show');
 Route::post('article/store','ArticleController@store');
