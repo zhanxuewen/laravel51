@@ -64,6 +64,9 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/discussions">首页</a></li>
             </ul>
+            <ul class="nav navbar-nav">
+                <li ><a href="/discussions">PHP</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                     <li>
