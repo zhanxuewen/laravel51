@@ -38,6 +38,9 @@ Route::post('/user/login', 'UserController@signin');
 Route::get('/verify/{confirm_code}', 'UserController@confirmEmail');
 Route::post('/user/register', 'UserController@store');
 
+
+Route::post('/deploy', 'DeploymentController@deploy');
+
 Route::resource('comment','CommentsController');
 Route::resource('/test','TestsController');
 
