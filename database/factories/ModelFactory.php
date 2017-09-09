@@ -49,3 +49,18 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
         'discussion_id' => $faker->randomElement($discussion_ids),
     ];
 });
+
+
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+    $user_ids = \App\User::lists('id')->toArray();
+    // 5.3  废弃 lists $user_ids = \App\User::pluck('id')->toArray();
+    // 5.4  $user_ids = \App\User::pluck('id')->toArray();
+    return [
+        'title' => $faker->sentence,
+        'content' => $faker->paragraph,
+        'intro' => $faker->paragraph,
+        'user_id' => $faker->randomElement($user_ids),
+        'published_at' => $faker->date(),
+//        'published_at' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
+    ];
+});

@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1>撰写新文章</h1>
+        <h1>编辑文章</h1>
 
         {{--{!! Form::open(['url'=>'article/store']) !!}--}}
-        {!! Form::open(['url'=>'article']) !!}
+        {!! Form::model($article, ['method'=>'PATCH','url'=>'/article/'.$article->id]) !!}
         @include('articles.form')
         {!! Form::close() !!}
         @include('errors.list');

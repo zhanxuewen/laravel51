@@ -23,9 +23,15 @@ class StoreArticleRequest extends Request
      */
     public function rules()
     {
-        return [
-            'title' => 'required|min:3',
-            'content'=> 'required'
+        $rules =  [
+            'title'        => 'required|min:3',
+            'content'      => 'required',
+            'published_at' => 'required',
         ];
+
+//        if (isEdit()){
+//            // TODo
+//        }
+        return $rules;
     }
 }

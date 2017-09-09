@@ -43,13 +43,12 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        $input = Request::all();
+        $input = $request->all();
         $input['intro'] = mb_substr(Request::get('content'),0,64);
 //        $input['published_at'] = Carbon::now();
 //        dd($input);
-        Article::create($input);
-
-        return redirect('/');
+        Article::create(array_merge($input, ['user_id'=>\Auth::user()->id]));
+        return redirect('/article');
     }
 
     /**
@@ -60,7 +59,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
+//        dd($article->published_at->diffForHumans());
         return view('articles.show',compact('article'));
     }
 
@@ -72,7 +72,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
     }
 
     /**
@@ -82,9 +83,13 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreArticleRequest $request, $id)
     {
-        //
+//        dd($request->all());
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+
+        return redirect('/article');
     }
 
     /**

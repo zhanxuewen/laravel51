@@ -38,6 +38,10 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class); //$user->discussion
+    }
 
     public function discussions()
     {
