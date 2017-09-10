@@ -1,5 +1,5 @@
  @extends('app')
-
+ <script type='text/javascript' src="/js/all.js"></script>
 @section('content')
     <div class="container">
         <h1>撰写新文章</h1>
@@ -8,7 +8,7 @@
         {!! Form::open(['url'=>'article']) !!}
         @include('articles.form')
         {!! Form::close() !!}
-        @include('errors.list');
+        @include('errors.list')
     </div>
 
 @endsection

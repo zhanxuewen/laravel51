@@ -32,10 +32,21 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag')->withTimestamps();
     }
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function _getTagListAttribute(){
+//        return $this->tags()->lists('id')->all();
+    }
+
+    public function getTagListAttribute()
+    {
+        // laravel 5.1 needs all()
+        return $this->tags->lists('id')->all();
+        // tags means tags() many-to-many relationship with tag
     }
 }

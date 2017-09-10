@@ -21,6 +21,16 @@ class CreateArticleTagTable extends Migration
             $table->timestamps();
         });
     }
+    /*
+    foreign()：外键
+    references()：参照字段
+    on()：参照表
+    onDelete()：删除时的执行动作
+    这里是跟着删除，比如删除了某篇文章，我们将article_tag中包含article_id一样的记录也删除
+
+    最后，执行migration生成article_tag表：
+     */
+
 
     /**
      * Reverse the migrations.

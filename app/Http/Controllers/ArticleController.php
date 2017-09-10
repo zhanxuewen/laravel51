@@ -45,9 +45,8 @@ class ArticleController extends Controller
     {
         $input = $request->all();
         $input['intro'] = mb_substr(Request::get('content'),0,64);
-//        $input['published_at'] = Carbon::now();
-//        dd($input);
-        Article::create(array_merge($input, ['user_id'=>\Auth::user()->id]));
+        $article = Article::create(array_merge($input, ['user_id'=>\Auth::user()->id]));
+        $article->tags()->attach($request->input('tag_list'));
         return redirect('/article');
     }
 
@@ -73,7 +72,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
-        return view('articles.edit', compact('article'));
+        $tags = Tag::lists('name', 'id');
+        return view('articles.edit', compact('article','tags'));
     }
 
     /**
@@ -87,8 +87,10 @@ class ArticleController extends Controller
     {
 //        dd($request->all());
         $article = Article::findOrFail($id);
-        $article->update($request->all());
+//        $article->update($request->all());
+        $article->update($request->except('id'));
 
+        $article->tags()->sync($request->get('tag_list'));
         return redirect('/article');
     }
 
@@ -102,4 +104,18 @@ class ArticleController extends Controller
     {
         //
     }
+
+    public function store_demo(Request $request)
+    {
+        $input = $request->all();
+        $validator = \Validator::make($input, [
+            'title' => 'required|min:3',
+            'body'  => 'required',
+        ]);
+        if ($validator->failed()){
+            dd('验证没有通过');
+        }
+        return redirect('/article');
+    }
+
 }

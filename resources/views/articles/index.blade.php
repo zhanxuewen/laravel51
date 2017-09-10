@@ -14,6 +14,14 @@
                     <a href="article/{{ $article->id }}"> {{ $article->title }}</a>
                     {{--<a href=" {{ url('article', $article->id) }}"> {{ $article->title }}</a>--}}
                 </h2>
+                <ul class="post-meta pad group">
+                    <li><i class="fa fa-clock-o"></i>{{ $article->published_at->diffForHumans() }}</li>
+                    @if($article->tags)
+                        @foreach($article->tags as $tag)
+                            <li><i class="fa fa-tag"></i>{{ $tag->name }}</li>
+                        @endforeach
+                    @endif
+                </ul>
                 <div class="post-inner">
                     <div class="post-deco">
                         <div class="hex hex-small">
