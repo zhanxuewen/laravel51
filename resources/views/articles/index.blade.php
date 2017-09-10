@@ -1,13 +1,12 @@
-
 @extends('app')
 <link rel='stylesheet' href="/css/all.css" type='text/css' media='all'/>
 @section('content')
+
     <div class="container">
         <h1>Article</h1>
         <hr>
     </div>
     @foreach($articles as $article)
-
         <div class="container">
             <article class="format-image group ">
                 <h2 class="post-title pad">
@@ -40,4 +39,4 @@
             </article>
         </div>
     @endforeach
-@endsection;
+@endsection

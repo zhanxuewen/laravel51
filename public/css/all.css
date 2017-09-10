@@ -249,8 +249,8 @@ h2 {
 }
 
 .container {
-  max-width: 1080px;
-  min-width: 1080px;
+  /*max-width: 1080px;*/
+  /*min-width: 1080px;*/
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -1721,9 +1721,9 @@ body {
   font-family: "Lato", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.container {
-  max-width: 860px;
-}
+/*.container {*/
+  /*max-width: 860px;*/
+/*}*/
 
 a,
 .post-title a:hover,
