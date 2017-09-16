@@ -93,6 +93,8 @@ return [
             'password'=>'required|min:6|confirmed',
             'password_confirmation'=>'required|min:6'
      */
+
+    // 用户自定义错误提示信息
     'custom' => [
         'name' => [
             'required'  => '用户名不能为空',

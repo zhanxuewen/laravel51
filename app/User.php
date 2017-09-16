@@ -61,7 +61,7 @@ class User extends Model implements AuthenticatableContract,
     public static function register(array $attribute)
     {
         $user = static::create($attribute);
-
+        // 触发事件
         event(new UserRegistered($user));
         return $user;
     }

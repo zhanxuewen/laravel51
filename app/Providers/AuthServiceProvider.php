@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Discussion' => 'App\Policies\PostPolicy',
     ];
 
     /**
@@ -25,7 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
-
-        //
+        // 这篇文章是不是用户创建的 如果是则给他相应的权限
+        $gate->define('show-post', function($user, $post){
+            return $user->id == $post->user_id;
+        });
     }
 }

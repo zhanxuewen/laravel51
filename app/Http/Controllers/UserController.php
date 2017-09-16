@@ -149,7 +149,7 @@ class UserController extends Controller
         if (\Auth::attempt([
             'email' => $request->get('email'),
             'password'=> $request->get('password'),
-            'is_confirmed'=>1,
+//            'is_confirmed'=>1,
         ])){
             return redirect('/discussions');
         }

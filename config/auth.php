@@ -64,4 +64,13 @@ return [
         'expire' => 60,
     ],
 
+    // 如果修改User.php 使用 Auth::attempt 会出现错误， 怎么解决
+    // 修改你的config/auth.php 的配置文件
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model'  => \App\User::class,
+        ]
+    ],
+
 ];

@@ -70,7 +70,13 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+
         $discussion = Discussion::findOrFail($id);
+        // 权限控制
+//        $this->authorize('show-post', $discussion);
+//        if (\Gate::denies('show-post', $discussion)){
+//            abort(403,'sorry');
+//        }
         $html = $this->markdown->markdown($discussion->body);
         return view('forum.show',compact('discussion','html'));
     }

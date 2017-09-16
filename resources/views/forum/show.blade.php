@@ -9,6 +9,9 @@
                         <a href="">
                             <img style = 'width: 64px; height: 64px; ' src="{{$discussion->user->avatar}}" alt="64×64" class="media-object img-circle">
                         </a>
+                        @can('show-post',$discussion)
+                            <a href="#">编辑文章</a>
+                        @endcan
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">
