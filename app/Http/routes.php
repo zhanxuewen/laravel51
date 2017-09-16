@@ -1,6 +1,6 @@
 <?php
 
-Auth::loginUsingId(40);
+//Auth::loginUsingId(40);
 
 Route::get('/','PostsController@index');
 Route::resource('article','ArticleController');
