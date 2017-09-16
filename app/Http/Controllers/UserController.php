@@ -54,7 +54,7 @@ class UserController extends Controller
 
 //        $this->sendTo($user,$subject, $view, $data);
         // 重定向
-        return redirect('/discussions');
+        return redirect('/user/login');
     }
 
     /**
