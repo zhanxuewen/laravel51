@@ -6,12 +6,24 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Http\Requests\StoreArticleRequest;
+use App\Markdown\Markdown;
 use App\Tag;
 use Carbon\Carbon;
 use Request;
 
 class ArticleController extends Controller
 {
+    private $markdown;
+
+    /**
+     * ArticleController constructor.
+     * @param $markdown
+     */
+    public function __construct(Markdown $markdown)
+    {
+        $this->markdown = $markdown;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +72,9 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 //        dd($article->published_at->diffForHumans());
-        return view('articles.show',compact('article'));
+
+        $content = $this->markdown->markdown($article->content);
+        return view('articles.show',compact('article','content'));
     }
 
     /**

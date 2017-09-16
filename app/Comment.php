@@ -23,4 +23,9 @@ class Comment extends Model
 //        dd((new Markdown\Markdown(new Parser))->markdown($value));
 //        return (new Markdown\Markdown(new Parser))->markdown($value);
 //    }
+
+    public function getBodyAttribute($value)
+    {
+        return (new Markdown\Markdown(new Parser))->markdown($value);
+    }
 }

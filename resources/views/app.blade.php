@@ -106,7 +106,7 @@
 {{--</div>--}}
 
 {{--footer--}}
-<footer class="bs-docs-footer">
+<footer class="bs-docs-footer ">
     <div class="container">
         <ul class="bs-docs-footer-links">
             <li><a href="https://github.com/zhanxuewen">GitHub</a></li>

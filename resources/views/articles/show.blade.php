@@ -14,7 +14,7 @@
                     <div class="post-inner">
                         <div class="post-content pad">
                             <div class="entry custome">
-                                {{ $article->content }}
+                                {!! $content !!}
                             </div>
                         </div>
                     </div>

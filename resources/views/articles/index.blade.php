@@ -3,7 +3,11 @@
 @section('content')
 
     <div class="container">
-        <h1>Article</h1>
+        <div class="jumbotron">
+            <h1>Article
+                <a class="btn btn-lg btn-primary pull-right" href="/article/create" role="button">Create Article »</a>
+            </h1>
+        </div>
         <hr>
     </div>
     @foreach($articles as $article)

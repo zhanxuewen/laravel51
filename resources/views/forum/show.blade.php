@@ -55,6 +55,7 @@
                             </h4>
                             {{--{{ $comment->body }}--}}
                             {!! $comment->body !!}
+
 {{--                            {!! new Markdown\Markdown(new Parser))->markdown($comment->body) !!}--}}
                         </div>
                     </div>

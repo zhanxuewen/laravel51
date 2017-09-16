@@ -28,4 +28,10 @@ class Markdown
         return $html;
     }
 
+    public static function makeHtml($text)
+    {
+//        $html = self::parser->makeHtml($text);
+//        return $html;
+    }
+
 }

@@ -18,6 +18,7 @@ class PostsController extends Controller
      */
     public function __construct(Markdown $markdown)
     {
+        // 在讨论区， 创建， 储存， 编辑， 更新， 讨论时需要 验证用户信息
         $this->middleware('auth',['only'=>['create', 'store', 'edit', 'update']]);
         $this->markdown = $markdown;
     }
