@@ -2,7 +2,7 @@
 @section('content')
     @include('editor::head')
     <div class="container">
-        <div class="col-md-10 col-md-offset-2" role="'main">
+        <div class="col-md-12" role="'main">
             {!! Form::open(['url'=>'/discussions']) !!}
             <div class="form-group">
                 {!! Form::label('title','标题：') !!}

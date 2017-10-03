@@ -174,7 +174,7 @@ class UserController extends Controller
 //        dd('avatar');
 
         $file = $request->file('avatar');
-
+        // 验证图片信息
         $input = array('image' => $file);
         $rules = array(
             'image' => 'image'
@@ -189,8 +189,10 @@ class UserController extends Controller
         }
 //        dd($file);
         $destinationPath = 'upload';
+        \File::exists($destinationPath) or \File::makeDirectory($destinationPath);
         $filename = \Auth::user()->id.'_'.time().'_'.$file->getClientOriginalName();
         $file->move($destinationPath, $filename);
+        // 调用 intervation/image 包 对图片进行修剪
         Image::make($destinationPath.'/'.$filename)->fit(400)->save();
 
 

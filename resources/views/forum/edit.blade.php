@@ -2,7 +2,7 @@
 @section('content')
     @include('editor::head')
     <div class="container">
-        <div class="col-md-12 " role="'main">
+        <div class="col-md-12" role="'main">
             {!! Form::model($discussion,['method'=>'PATCH','url'=>'/discussions/'.$discussion->id]) !!}
             <div class="form-group">
                 {!! Form::label('title','标题：') !!}

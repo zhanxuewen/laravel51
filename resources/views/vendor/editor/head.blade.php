@@ -38,6 +38,6 @@
 
 <style>
     .editor{
-        width:{{ config('editor.width') }};
+        width: 100%;
     }
 </style>
