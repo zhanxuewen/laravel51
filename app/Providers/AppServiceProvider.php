@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Carbon::setLocale('zh');
+        Carbon::setLocale('zh'); // 设置时间
     }
 
     /**

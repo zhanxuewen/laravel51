@@ -28,6 +28,19 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        //
+        // 在每次尝试认证时触发...
+        $events->listen('auth.attempt', function ($credentials, $remember, $login) {
+            //
+        });
+
+        // 登录成功时触发...
+        $events->listen('auth.login', function ($user, $remember) {
+            //
+        });
+
+        // 注销时触发...
+        $events->listen('auth.logout', function ($user) {
+            //
+        });
     }
 }

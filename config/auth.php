@@ -14,7 +14,7 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
+    // 如果你的应用程序没有使用 Eloquent，请选择使用 Laravel 查询构造器的 database 认证驱动。
     'driver' => 'eloquent',
 
     /*
@@ -59,7 +59,7 @@ return [
     */
 
     'password' => [
-        'email'  => 'emails.password',
+        'email'  => 'email.password',
         'table'  => 'password_resets',
         'expire' => 60,
     ],

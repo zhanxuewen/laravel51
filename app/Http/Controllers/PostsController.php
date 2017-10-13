@@ -33,7 +33,9 @@ class PostsController extends Controller
         //
 //        $disconsions = Discussion::all();
         $disconsions = Discussion::latest('updated_at')->get();
-        return view('forum.index', compact('disconsions'));
+        $articles = 'hello world';
+        $tags = 'five';
+        return view('forum.index', compact('disconsions','articles','tags'));
     }
 
     /**

@@ -41,7 +41,7 @@ class Authenticate
                 return redirect()->guest('user/login');
             }
         }
-
+        // 认证成功 进入下一请求
         return $next($request);
     }
 }

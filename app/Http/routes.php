@@ -1,6 +1,14 @@
 <?php
-
-//Auth::loginUsingId(40);
+// 使用facade
+// Auth::User();  获取用户信息
+// Auth::check()  检查用户是否登录
+// Auth::attempt() 尝试登录
+// Auth::logout()  用户退出登录
+// Auth::login($user);  用「用户实例」做认证
+// Auth::loginUsingId(40); 方法来登录指定 ID 用户，这个方法接受要登录用户的主键
+// Auth::once($credentials) 可以使用 once 方法来针对一次性认证用户，没有任何的 session 或 cookie 会被使用，
+//                          这个对于构建无状态的 API 非常的有用，
+//                          once 方法跟 attempt 方法拥有同样的传入参
 
 Route::get('/','PostsController@index');
 Route::resource('article','ArticleController');
@@ -16,6 +24,16 @@ Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+
+// 添加重试密码方法  ---------------------------------TODO------------------/
+// 密码重置链接的路由...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// token 代表什么？？
+// 密码重置的路由...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 //-------------------------------------------------------//
 Route::get('/user/login', 'UserController@login');
@@ -39,4 +57,6 @@ Route::post('/posts/upload', 'PostsController@upload');
 Route::post('/deploy', 'DeploymentController@deploy');
 
 
+//---------------------------------phpunit试验---------------------------------//
+Route::get('/phpunitexec/test1','phpUnitExecController@test1');
 
