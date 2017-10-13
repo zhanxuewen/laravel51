@@ -43,4 +43,7 @@
             </article>
         </div>
     @endforeach
+    <div class = 'container'>
+        {!! $articles->render() !!}
+    </div>
 @endsection

@@ -31,7 +31,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->published()->get();
+        $articles = Article::latest()->published()->paginate(10);
+//        dd($articles);
         return view('articles.index',compact('articles'));
     }
 

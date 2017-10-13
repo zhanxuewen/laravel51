@@ -43,7 +43,7 @@ return [
     | automatically by Laravel and you can use the Session like normal.
     |
     */
-
+    // 是否是加密的
     'encrypt' => false,
 
     /*
