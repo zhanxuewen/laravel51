@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\PodcastWasPurchased;
 use App\Events\UserRegistered;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,13 @@ class User extends Model implements AuthenticatableContract,
         // 触发事件
         event(new UserRegistered($user));
         return $user;
+    }
+
+    public static function eventTest()
+    {
+        $user = \Auth::user();
+        // 触发事件
+//        event(new PodcastWasPurchased($user));
+        \Event::fire(new PodcastWasPurchased($user));
     }
 }

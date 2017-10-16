@@ -52,4 +52,13 @@ $app->singleton(
 |
 */
 
+
+// 自定义monolog设置  configureMonologUsing
+/*
+$app->configureMonologUsing(function($monolog) {
+    $monolog->pushHandler(...);
+});
+ */
+
+
 return $app;
