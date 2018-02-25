@@ -5,7 +5,7 @@
         <!-- Main component for a primary marketing message or call to action -->
         <div class="jumbotron">
             <h1>Hello World !
-                <a class="btn btn-lg btn-primary pull-right" href="/discussions/create" role="button">Open Source & Share Mind »</a>
+                <a class="btn btn-lg btn-primary pull-right" href="/discussions/create" role="button">Open Source »</a>
             </h1>
         </div>
 

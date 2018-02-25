@@ -5,7 +5,7 @@
 // Auth::attempt() 尝试登录
 // Auth::logout()  用户退出登录
 // Auth::login($user);  用「用户实例」做认证
- Auth::loginUsingId(40);// 方法来登录指定 ID 用户，这个方法接受要登录用户的主键
+Auth::loginUsingId(40);// 方法来登录指定 ID 用户，这个方法接受要登录用户的主键
 // Auth::once($credentials) 可以使用 once 方法来针对一次性认证用户，没有任何的 session 或 cookie 会被使用，
 //                          这个对于构建无状态的 API 非常的有用，
 //                          once 方法跟 attempt 方法拥有同样的传入参
@@ -63,3 +63,6 @@ Route::get('/collection/test1','collectionController@test1');
 Route::get('/event/test1','EventController@test1');
 Route::get('/event/test2','EventController@test2');
 Route::get('/redis/test1','redisController@test1');
+
+//---------------------------------本地测试-----------------------------------//
+Route::get('/test/test1','TestController@test1');

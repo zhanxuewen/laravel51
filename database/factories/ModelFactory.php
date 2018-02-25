@@ -37,6 +37,8 @@ $factory->define(App\Discussion::class, function (Faker\Generator $faker) {
         'body' => $faker->paragraph,
         'user_id' => $faker->randomElement($user_ids),
         'last_user_id' => $faker->randomElement($user_ids),
+//      randomElements 是两个方法,
+
     ];
 });
 
